@@ -1,15 +1,56 @@
 using BattleField1942.Scripts.Helper.Constants;
+using Battlefields1942.Scripts.Helper.Enums;
 using Godot;
 using System;
 
 namespace BattleField1942.Scripts.Characters;
 public partial class Player : CharacterBody3D
 {
+	[ExportCategory("Required")]
+	[Export]
+	private StanceHandler _stanceHandler;
+
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
 
 
-	// Game Loop Methods---------------------------------------------------------------------------
+    // Game Loop Methods---------------------------------------------------------------------------
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event.IsActionPressed(InputActionNames.CROUCH_TOGGLE))
+		{
+			if (_stanceHandler.ActiveStance == StanceType.Crouched)
+			{
+				_stanceHandler.SwitchStance(StanceType.Standing);
+			}
+			else
+			{
+				_stanceHandler.SwitchStance(StanceType.Crouched);
+			}
+		}
+
+		if (@event.IsActionPressed(InputActionNames.PRONE_TOGGLE))
+		{
+			if (_stanceHandler.ActiveStance == StanceType.Prone)
+			{
+				_stanceHandler.SwitchStance(StanceType.Standing);
+			}
+			else
+			{
+				_stanceHandler.SwitchStance(StanceType.Prone);
+			}
+		}
+
+		if (@event.IsActionPressed(InputActionNames.JUMP))
+		{
+			if (_stanceHandler.ActiveStance != StanceType.Standing)
+			{
+				_stanceHandler.SwitchStance(StanceType.Standing);
+			}
+		}
+    }
+
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -22,9 +63,12 @@ public partial class Player : CharacterBody3D
 		}
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed(InputActionNames.JUMP) && IsOnFloor())
+		if (_stanceHandler.ActiveStance == StanceType.Standing)
 		{
-			velocity.Y = JumpVelocity;
+			if (Input.IsActionJustPressed(InputActionNames.JUMP) && IsOnFloor())
+			{
+				velocity.Y = JumpVelocity;
+			}
 		}
 
 		// Get the input direction and handle the movement/deceleration.
