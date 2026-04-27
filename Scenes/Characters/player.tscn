@@ -1,16 +1,35 @@
 [gd_scene format=3 uid="uid://c3uujww54eaqj"]
 
-[ext_resource type="Script" uid="uid://cchohlt1p2hjd" path="res://Scripts/Player.cs" id="1_3etf2"]
+[ext_resource type="Script" uid="uid://cc2gw3630vuly" path="res://Scripts/Characters/Player.cs" id="1_3etf2"]
+[ext_resource type="Script" uid="uid://cucw5qbhd01x2" path="res://Scripts/Characters/StanceHandler.cs" id="2_40svl"]
+[ext_resource type="Script" uid="uid://db2g5c73vbrrw" path="res://Scripts/Helper/DataClasses/StanceVariables.cs" id="3_al8ar"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j6hkg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3etf2"]
 
+[sub_resource type="Resource" id="Resource_gy20a"]
+script = ExtResource("3_al8ar")
+metadata/_custom_type_script = "uid://db2g5c73vbrrw"
+
+[sub_resource type="Resource" id="Resource_al8ar"]
+script = ExtResource("3_al8ar")
+ColliderHeight = 1.0
+ColliderPivot = 0.5
+metadata/_custom_type_script = "uid://db2g5c73vbrrw"
+
+[sub_resource type="Resource" id="Resource_cqrjx"]
+script = ExtResource("3_al8ar")
+ColliderHeight = 0.25
+ColliderRadius = 0.25
+ColliderPivot = 0.125
+metadata/_custom_type_script = "uid://db2g5c73vbrrw"
+
 [node name="Player" type="CharacterBody3D" unique_id=286895451]
 script = ExtResource("1_3etf2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1549190104]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("CapsuleShape3D_j6hkg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1331098326]
@@ -19,3 +38,12 @@ skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=799186616]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.7481807, 0)
+
+[node name="StanceHandler" type="Node" parent="." unique_id=2146519685 node_paths=PackedStringArray("CharacterCollisionShape")]
+script = ExtResource("2_40svl")
+CharacterCollisionShape = NodePath("../CollisionShape3D")
+_stanceConfigs = Dictionary[int, Object]({
+0: SubResource("Resource_gy20a"),
+1: SubResource("Resource_al8ar"),
+2: SubResource("Resource_cqrjx")
+})

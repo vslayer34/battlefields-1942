@@ -2,10 +2,14 @@ using BattleField1942.Scripts.Helper.Constants;
 using Godot;
 using System;
 
+namespace BattleField1942.Scripts.Characters;
 public partial class Player : CharacterBody3D
 {
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
+
+
+	// Game Loop Methods---------------------------------------------------------------------------
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -27,7 +31,7 @@ public partial class Player : CharacterBody3D
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		// Input.ActionPress(action: "")
 		
-		Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		Vector2 inputDir = Input.GetVector(InputActionNames.MOVE_RIGHT, InputActionNames.MOVE_LEFT, InputActionNames.MOVE_BACKWARD, InputActionNames.MOVE_FORWARD);
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 		if (direction != Vector3.Zero)
 		{
@@ -43,4 +47,6 @@ public partial class Player : CharacterBody3D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
+
+	// Member Methods------------------------------------------------------------------------------
 }
