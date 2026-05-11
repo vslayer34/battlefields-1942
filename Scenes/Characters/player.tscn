@@ -8,6 +8,13 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3etf2"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_al8ar"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gy20a"]
+material = SubResource("StandardMaterial3D_al8ar")
+size = Vector3(0.685, 0.39, 0.33)
+
 [sub_resource type="Resource" id="Resource_gy20a"]
 script = ExtResource("3_al8ar")
 metadata/_custom_type_script = "uid://db2g5c73vbrrw"
@@ -39,6 +46,12 @@ skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="CollisionShape3D" unique_id=799186616]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.74818075, 0)
+cull_mask = 524287
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1800140937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5581695, 0.35901523)
+layers = 524288
+mesh = SubResource("BoxMesh_gy20a")
 
 [node name="StanceHandler" type="Node" parent="." unique_id=2146519685 node_paths=PackedStringArray("CharacterCollisionShape")]
 script = ExtResource("2_40svl")

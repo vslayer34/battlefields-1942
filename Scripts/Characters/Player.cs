@@ -49,6 +49,12 @@ public partial class Player : CharacterBody3D
 				_stanceHandler.SwitchStance(StanceType.Standing);
 			}
 		}
+
+		if (@event is InputEventMouseMotion mouseDelta)
+		{
+			// Transform = Transform.Rotated(Vector3.Up, mouseDelta.Relative.X * (float)GetProcessDeltaTime());
+			RotateY(-mouseDelta.Relative.X * (float)GetProcessDeltaTime());
+		}
     }
 
 
