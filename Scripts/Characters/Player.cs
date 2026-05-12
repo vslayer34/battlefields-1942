@@ -10,6 +10,9 @@ public partial class Player : CharacterBody3D
 	[Export]
 	private StanceHandler _stanceHandler;
 
+	[Export]
+	private Camera3D _fpsCamera;
+
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
 
@@ -52,8 +55,11 @@ public partial class Player : CharacterBody3D
 
 		if (@event is InputEventMouseMotion mouseDelta)
 		{
-			// Transform = Transform.Rotated(Vector3.Up, mouseDelta.Relative.X * (float)GetProcessDeltaTime());
+			// Rotate camera hprizontally
 			RotateY(-mouseDelta.Relative.X * (float)GetProcessDeltaTime());
+
+			// Rotate Camera Vertically
+			_fpsCamera.RotateX(-mouseDelta.Relative.X * (float)GetProcessDeltaTime());
 		}
     }
 
