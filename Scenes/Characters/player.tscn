@@ -32,9 +32,10 @@ ColliderRadius = 0.25
 ColliderPivot = 0.125
 metadata/_custom_type_script = "uid://db2g5c73vbrrw"
 
-[node name="Player" type="CharacterBody3D" unique_id=286895451 node_paths=PackedStringArray("_stanceHandler")]
+[node name="Player" type="CharacterBody3D" unique_id=286895451 node_paths=PackedStringArray("_stanceHandler", "_fpsCamera")]
 script = ExtResource("1_3etf2")
 _stanceHandler = NodePath("StanceHandler")
+_fpsCamera = NodePath("CollisionShape3D/Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1549190104]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

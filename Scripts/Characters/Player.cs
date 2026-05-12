@@ -1,7 +1,6 @@
 using BattleField1942.Scripts.Helper.Constants;
 using Battlefields1942.Scripts.Helper.Enums;
 using Godot;
-using System;
 
 namespace BattleField1942.Scripts.Characters;
 public partial class Player : CharacterBody3D
@@ -9,6 +8,9 @@ public partial class Player : CharacterBody3D
 	[ExportCategory("Required")]
 	[Export]
 	private StanceHandler _stanceHandler;
+
+	[Export]
+	private Camera3D _fpsCamera;
 
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
@@ -52,8 +54,17 @@ public partial class Player : CharacterBody3D
 
 		if (@event is InputEventMouseMotion mouseDelta)
 		{
-			// Transform = Transform.Rotated(Vector3.Up, mouseDelta.Relative.X * (float)GetProcessDeltaTime());
+			// Rotate camera hprizontally
 			RotateY(-mouseDelta.Relative.X * (float)GetProcessDeltaTime());
+
+			// Rotate Camera Vertically and clamp it
+			_fpsCamera.RotateX(mouseDelta.Relative.Y * (float)GetProcessDeltaTime());
+			float clampedXAngle = Mathf.Clamp(_fpsCamera.RotationDegrees.X, -65.0f, 65.0f);
+			_fpsCamera.RotationDegrees = new Vector3(clampedXAngle, _fpsCamera.RotationDegrees.Y, _fpsCamera.RotationDegrees.Z);
+			// _fpsCamera.Rotation = _fpsCamera.Rotation.Clamp(new Vector3(Mathf.DegToRad(-65.0f), _fpsCamera.Rotation.Y, _fpsCamera.Rotation.Z),
+				// new Vector3(Mathf.DegToRad(65.0f), _fpsCamera.Rotation.Y, _fpsCamera.Rotation.Z));
+
+			GD.Print($"FPS Camera Rotation: {_fpsCamera.RotationDegrees}");
 		}
     }
 
