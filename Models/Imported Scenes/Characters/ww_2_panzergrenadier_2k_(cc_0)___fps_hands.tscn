@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dopfjpev430if"]
 
 [ext_resource type="PackedScene" uid="uid://di6mgn4pq680g" path="res://Models/Characters/WW2 Panzergrenadier 2k (CC0) - FPS Hands/WW2 Panzergrenadier 2k (CC0) - FPS Hands.glb" id="1_lobjx"]
-[ext_resource type="PackedScene" uid="uid://dv4kxlctb2deo" path="res://Models/Imported Scenes/Weapons/mp_40 Unfolded.tscn" id="2_tq7va"]
+[ext_resource type="PackedScene" uid="uid://eu1l7f8hdkm1" path="res://Blender/MP40/MP-40 Original.blend" id="2_tq7va"]
 
 [node name="WW2 Panzergrenadier 2k (CC0) - FPS Hands" unique_id=1332636731 instance=ExtResource("1_lobjx")]
 
-[node name="Sketchfab_Scene" parent="." index="1" unique_id=2141293123 instance=ExtResource("2_tq7va")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3771617, 0, 0.5093347)
+[node name="MP-40 Original" parent="." index="1" unique_id=530069583 instance=ExtResource("2_tq7va")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5224342, 0, 0.6112156)

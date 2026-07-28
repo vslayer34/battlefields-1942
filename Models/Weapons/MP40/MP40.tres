@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bman1ov72wyl4"]
+
+[ext_resource type="Texture2D" uid="uid://ckdjcc2l16rct" path="res://Models/Weapons/MP40/textures/MP40_baseColor.png" id="1_g3ayq"]
+[ext_resource type="Texture2D" uid="uid://bb1fr5cfokp5d" path="res://Models/Weapons/MP40/textures/MP40_emissive.png" id="2_2sxxq"]
+[ext_resource type="Texture2D" uid="uid://bkocj7espuayu" path="res://Models/Weapons/MP40/textures/MP40_metallicRoughness.png" id="3_k1xts"]
+[ext_resource type="Texture2D" uid="uid://utgj6mlx037v" path="res://Models/Weapons/MP40/textures/MP40_normal.png" id="4_dhalt"]
+
+[resource]
+resource_name = "MP40"
+cull_mode = 2
+albedo_texture = ExtResource("1_g3ayq")
+metallic = 1.0
+metallic_texture = ExtResource("3_k1xts")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_k1xts")
+roughness_texture_channel = 1
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_2sxxq")
+normal_enabled = true
+normal_texture = ExtResource("4_dhalt")
+metadata/_gltf_primary_texture_coord = 0
