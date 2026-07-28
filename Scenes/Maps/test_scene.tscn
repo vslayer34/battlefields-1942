@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dd8gvnyhbg7m"]
 
 [ext_resource type="PackedScene" uid="uid://c3uujww54eaqj" path="res://Scenes/Characters/player.tscn" id="1_m1mwt"]
+[ext_resource type="PackedScene" uid="uid://di6mgn4pq680g" path="res://Models/Characters/WW2 Panzergrenadier 2k (CC0) - FPS Hands/WW2 Panzergrenadier 2k (CC0) - FPS Hands.glb" id="2_hrd5l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m1mwt"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -43,3 +44,6 @@ mesh = SubResource("BoxMesh_qvlng")
 shape = SubResource("BoxShape3D_m1mwt")
 
 [node name="Player" parent="." unique_id=286895451 instance=ExtResource("1_m1mwt")]
+
+[node name="WW2 Panzergrenadier 2k (CC0) - FPS Hands" parent="." unique_id=1332636731 instance=ExtResource("2_hrd5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.479181, 2.6655188, -16.566486)

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cc2gw3630vuly" path="res://Scripts/Characters/Player.cs" id="1_3etf2"]
 [ext_resource type="Script" uid="uid://cucw5qbhd01x2" path="res://Scripts/Characters/StanceHandler.cs" id="2_40svl"]
 [ext_resource type="Script" uid="uid://db2g5c73vbrrw" path="res://Scripts/Helper/DataClasses/StanceVariables.cs" id="3_al8ar"]
+[ext_resource type="PackedScene" uid="uid://dopfjpev430if" path="res://Models/Imported Scenes/Characters/ww_2_panzergrenadier_2k_(cc_0)___fps_hands.tscn" id="4_gy20a"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j6hkg"]
 
@@ -42,6 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_j6hkg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1331098326]
+visible = false
 mesh = SubResource("CapsuleMesh_3etf2")
 skeleton = NodePath("../..")
 
@@ -51,6 +53,7 @@ cull_mask = 524287
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1800140937]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5581695, 0.35901523)
+visible = false
 layers = 524288
 mesh = SubResource("BoxMesh_gy20a")
 
@@ -62,3 +65,5 @@ _stanceConfigs = Dictionary[int, Object]({
 1: SubResource("Resource_al8ar"),
 2: SubResource("Resource_cqrjx")
 })
+
+[node name="WW2 Panzergrenadier 2k (CC0) - FPS Hands" parent="." unique_id=1332636731 instance=ExtResource("4_gy20a")]
