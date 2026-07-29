@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b73du5dxdj0xr"]
+
+[ext_resource type="PackedScene" uid="uid://n742mcptcjsa" path="res://Models/Characters/WW2 Panzergrenadier 2k (CC0)/scene.gltf" id="1_pyrb2"]
+
+[node name="WW2 Panzergrenadier 2k (CC0) - Full Character" unique_id=1265817850 instance=ExtResource("1_pyrb2")]
