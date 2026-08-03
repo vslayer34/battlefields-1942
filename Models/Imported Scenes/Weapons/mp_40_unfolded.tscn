@@ -1,27 +1,19 @@
-[gd_scene format=3 uid="uid://dv4kxlctb2deo"]
+Reset Position
+Vector3(0,-8.18905221e-11,0.00186639349)
 
-[ext_resource type="PackedScene" uid="uid://cdpqov8bsmxtn" path="res://Models/Weapons/MP40/MP40 Unfolded.glb" id="1_85ftb"]
-[ext_resource type="Material" uid="uid://c7mtqhedyvx4d" path="res://Models/Weapons/MP40/MP40.res" id="2_53xlu"]
+Safety Rotation Quaternion(0,0,-0.19936797,0.979924738) Vector3(0,0,337)
 
-[node name="MP40 Unfolded" unique_id=1119659986 instance=ExtResource("1_85ftb")]
+Ready to Fire
+Vector3(0,0,0.00135699997)
 
-[node name="Unfolded Mp40 Body" parent="." index="0" unique_id=736530981]
-transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, 0.99999994, 0, -0.99999994, -3.5762787e-07, 0, 0, 0)
 
-[node name="Unfolde Mp40 Magazine_001" parent="Unfolded Mp40 Body/Unfolde Mp40 Magazine" parent_id_path=PackedInt32Array(635179268) index="0" unique_id=1801802586]
-material_override = ExtResource("2_53xlu")
+Lock on Empty Position
+Vector3(0,0,0.000704000005)
 
-[node name="Unfolded Mp40 Body_001" parent="Unfolded Mp40 Body" index="1" unique_id=1698735625]
-material_override = ExtResource("2_53xlu")
+Lock on Empty Position Rotation
+Vector3(2.69638258e-06,-1.37165614e-07,317.305817)
+Quaternion(2.23517365e-08,7.45057882e-09,-0.364016801,0.931392372)
 
-[node name="Unfolded Mp40 Bolt" parent="Unfolded Mp40 Body" index="2" unique_id=734596246]
-material_override = ExtResource("2_53xlu")
+Lock on Empty Position Forward after rotation
+Vector3(0,0,0.000773300009)
 
-[node name="Unfolded MP 40 Butt Plate_001" parent="Unfolded Mp40 Body/Unfolded Mp40 Cheek Rest/Unfolded MP 40 Butt Plate" parent_id_path=PackedInt32Array(1889551040) index="0" unique_id=858463267]
-material_override = ExtResource("2_53xlu")
-
-[node name="Unfolded Mp40 Cheek Rest_001" parent="Unfolded Mp40 Body/Unfolded Mp40 Cheek Rest" parent_id_path=PackedInt32Array(180487030) index="1" unique_id=73160959]
-material_override = ExtResource("2_53xlu")
-
-[node name="Unfolded Mp40 Trigger_001" parent="Unfolded Mp40 Body/Unfolded Mp40 Trigger" parent_id_path=PackedInt32Array(1432000395) index="0" unique_id=741416692]
-material_override = ExtResource("2_53xlu")
